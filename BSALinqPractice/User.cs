@@ -14,5 +14,7 @@ namespace BSALinqPractice
         public string Avatar { get; set; }
         public string Email { get; set; }
 
+        IEnumerable<Post> Posts { get; set; }
+        IEnumerable<Todo> Todoes { get; set; }
     }
 }

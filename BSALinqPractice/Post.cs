@@ -14,5 +14,7 @@ namespace BSALinqPractice
         public string Body { get; set; }
         public int UserId { get; set; }
         public int Likes { get; set; }
+
+        IEnumerable<Comment> Comments { get; set; }
     }
 }
