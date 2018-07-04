@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace BSALinqPractice
 {
-    public class DataRepository
+    public class DataSource
     {
         private string RowUsers { get; set; }
         private string RowComments { get; set; }
@@ -17,7 +17,7 @@ namespace BSALinqPractice
         private string RowTodoes { get; set; }
         private string RowAddresses { get; set; }
 
-        public DataRepository()
+        public DataSource()
         {
             RowUsers = GetRowData("users").GetAwaiter().GetResult();
             RowPosts = GetRowData("posts").GetAwaiter().GetResult();
@@ -26,7 +26,7 @@ namespace BSALinqPractice
             RowAddresses = GetRowData("address").GetAwaiter().GetResult();
         }
 
-        private async Task<string> GetRowData(string route)
+        private async Task<string> GetRowData(string route) //gets json as string from api
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync($"https://5b128555d50a5c0014ef1204.mockapi.io/{route}");
@@ -36,6 +36,7 @@ namespace BSALinqPractice
             return responseBody;
         }
 
+        #region Deserializing
         public IEnumerable<User> GetUsers()
         {
             IEnumerable<User> users = JsonConvert.DeserializeObject<IEnumerable<User>>(RowUsers);
@@ -93,5 +94,7 @@ namespace BSALinqPractice
         {
             return JsonConvert.DeserializeObject<IEnumerable<Address>>(RowAddresses);
         }
+        #endregion Deserializing
+
     }
 }

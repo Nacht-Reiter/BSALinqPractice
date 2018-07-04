@@ -17,5 +17,20 @@ namespace BSALinqPractice
         public IEnumerable<Post> Posts { get; set; }
         public IEnumerable<Todo> Todoes { get; set; }
 
-    }
+        public override string ToString()
+        {
+            string posts = "";
+            string todoes = "";
+            foreach (var i in Posts)
+            {
+                posts += i.ToString();
+            }
+            foreach (var i in Todoes)
+            {
+                todoes += i.ToString();
+            }
+            return $"\nUser:\nId: {Id}\nName: {Name}\nAvatar: {Avatar}" +
+                $"\nCreated at: {CreatedAt}\nEmail: {Email}\nPosts:\n{posts}Todoes: \n{todoes}";
+        }
+    }   
 }

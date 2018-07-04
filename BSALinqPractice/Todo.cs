@@ -13,5 +13,11 @@ namespace BSALinqPractice
         public string Name { get; set; }
         public bool IsComplete { get; set; }
         public int UserId { get; set; }
+
+        public override string ToString()
+        {
+            return $"\n\tTodo:\n\tId: {Id}\n\tName: {Name}\n\tIs complete?: {IsComplete}" +
+                $"\n\tCreated at: {CreatedAt}\n\tUser id: {UserId}\n";
+        }
     }
 }

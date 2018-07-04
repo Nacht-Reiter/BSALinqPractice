@@ -14,5 +14,11 @@ namespace BSALinqPractice
         public int UserId { get; set; }
         public int PostId { get; set; }
         public int Likes { get; set; }
+
+        public override string ToString()
+        {
+            return $"\n\t\tComment:\n\t\tId: {Id}\n\t\tBody: {Body}\n\t\tCreated at: {CreatedAt}" +
+                $"\n\t\tPost id: {PostId}\n\t\tUser id: {UserId}\n\t\tLikes: {Likes}\n";
+        }
     }
 }
