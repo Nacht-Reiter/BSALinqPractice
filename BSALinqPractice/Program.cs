@@ -12,6 +12,7 @@ namespace BSALinqPractice
         {
             var rep = new DataRepository();
             Users = rep.GetUsers();
+            Menu.MainMenu();
         }
 
         public static IEnumerable<(Post, int)> CountCommentsUnderPosts(int userId)
@@ -88,7 +89,5 @@ namespace BSALinqPractice
             }
             throw new ArgumentException("Wrong User id");
         }
-
-        
     }
 }
