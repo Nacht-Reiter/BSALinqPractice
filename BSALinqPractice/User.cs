@@ -16,5 +16,6 @@ namespace BSALinqPractice
 
         public IEnumerable<Post> Posts { get; set; }
         public IEnumerable<Todo> Todoes { get; set; }
+
     }
 }
